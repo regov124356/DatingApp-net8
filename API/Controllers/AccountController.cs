@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Controllers;
 public class AccountController(DataContext context, ITokenService tokenService, IMapper mapper) : BaseApiController
 {
-    [HttpPost("register")] //account/reggister
+    [HttpPost("register")]
     public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
     {
         if (await UserExists(registerDto.Username)) return BadRequest("Username is taken");
