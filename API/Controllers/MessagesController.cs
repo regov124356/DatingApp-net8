@@ -23,7 +23,7 @@ public class MessagesController(IMessageRepository messageRepository, IUserRepos
         var sender = await userRepository.GetUserByUsernameAsync(username);
         var recipient = await userRepository.GetUserByUsernameAsync(createMessageDto.RecipientUsername);
 
-        if (sender == null || recipient == null) return BadRequest("Cannot send message at this time — the recipient probably does not exist");
+        if (sender == null || recipient == null || sender.UserName == null || recipient.UserName == null) return BadRequest("Cannot send message at this time — the recipient probably does not exist");
 
         var message = new Message
         {
