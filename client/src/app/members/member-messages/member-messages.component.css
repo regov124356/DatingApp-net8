@@ -9,6 +9,8 @@
 }
 
 .chat li {
+    width: calc(100% - 10px);
+    margin: 0 auto 0 auto;
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px dotted black;
