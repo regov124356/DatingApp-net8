@@ -14,10 +14,7 @@ public static class IdentityServiceExtensions
     {
         services.AddIdentityCore<AppUser>(opt => 
         {
-            opt.Password.RequireUppercase = true;
-            opt.Password.RequireDigit = true;
             opt.Password.RequiredLength = 8;
-            opt.Password.RequireUppercase = true;
         })
             .AddRoles<AppRole>()
             .AddRoleManager<RoleManager<AppRole>>()
