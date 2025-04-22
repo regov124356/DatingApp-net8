@@ -6,7 +6,6 @@ import { Message } from '../_models/message';
 import { setPaginationHeaders, setPaginationResponse } from './paginationHelper';
 import { HubConnection, HubConnectionBuilder, HubConnectionState } from '@microsoft/signalr';
 import { User } from '../_models/user';
-import { group } from '@angular/animations';
 import { Group } from '../_models/group';
 
 @Injectable({
