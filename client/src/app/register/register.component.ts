@@ -52,11 +52,13 @@ export class RegisterComponent implements OnInit {
   register() {
     const dob = this.getDateOnly(this.registerForm.get('dateOfBirth')?.value);
     this.registerForm.patchValue({ dateOfBirth: dob });
-    console.log("wywolano register");
-    console.log(this.registerForm.value);
+
     this.accountService.register(this.registerForm.value).subscribe({
       next: _ => this.router.navigateByUrl('/members'),
-      error: error => this.validationErrors = error
+      error: error => {
+        this.validationErrors = error.error.map((e: { description: any; }) => e.description);
+        console.log(error)
+      }
     })
   }
 

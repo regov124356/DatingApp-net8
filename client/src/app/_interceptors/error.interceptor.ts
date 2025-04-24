@@ -20,7 +20,11 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
               }
               throw modalStaleErrors.flat();
             } else {
-              toastr.error(error.error, error.status)
+              toastr.error(
+                error.error.map((e: { description: any; }) => e.description).join('<br/>'),
+                error.status,
+                { enableHtml: true }
+              );
             }
             break;
           case 401:
